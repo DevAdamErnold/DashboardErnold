@@ -1,9 +1,9 @@
 from quart import Quart, redirect, url_for, render_template
 from quart_discord import DiscordOAuth2Session, requires_authorization, Unauthorized
-import random
+
 app = Quart(__name__)
 
-app.secret_key = random.random()
+app.secret_key = b"random bytes representing quart secret key"
 
 app.config["DISCORD_CLIENT_ID"] = 929799004672376902   # Discord client ID.
 app.config["DISCORD_CLIENT_SECRET"] = "ddxwkQi8I-XodA1N9bXzfYmcdC8RdnJA"                # Discord client secret.
@@ -61,4 +61,4 @@ async def me():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run()
